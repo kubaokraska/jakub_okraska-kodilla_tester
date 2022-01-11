@@ -20,8 +20,7 @@ public class FirstClass {
 */
     Grades grade = new Grades();
 
-
-int x=5;
+    /*int x=5;
 
         grade.add(x);
         grade.add(3);
@@ -32,6 +31,11 @@ int x=5;
        grade.printGrades();
        System.out.println(grade.showLast());
        System.out.println(grade.returnAverage());
+
+*/
+
+
+
 
 
 
