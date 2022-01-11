@@ -1,6 +1,6 @@
 public class LeapYear {
 
-   static void rokPrz(int year) {
+  public static void rokPrz(int year) {
 
         int bufor = 1;
 
