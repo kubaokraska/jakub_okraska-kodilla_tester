@@ -1,42 +1,44 @@
 import java.util.Random;
+
 public class RandomNumbers {
+    static int max = 0;
+    static int min = 30;
 
     public static void main(String[] args) {
-      Grades tab= new Grades();
+
         Random r = new Random();
-        int max=0;
-        int min=30;
+
         int result = 0;
 
         while (result < 5000) {
-          tab.add(r.nextInt(31));
-          result= result+tab.showLast();
+            System.out.println("Max number= "+ max);
+            System.out.println("Min number= " + min);
 
+            int temp= 0; //zmienna tymczasowa
+            temp = r.nextInt(31);
+            getMax(temp);
+            getMin(temp);
 
+            result +=temp;
+
+            System.out.println("Max number= "+ max);
+            System.out.println("Min number= " + min);
         }
 
-     for(int i=0;i<tab.size;i++) {
-         if (max < tab.grades[i]) {
-             max = tab.grades[i];
-         }
-         else if(min > tab.grades[i]){
-             min=tab.grades[i];
-         }
-
-
-     }
-        System.out.println("Ilość elementów tablicy= "+ tab.size);
-        System.out.println("Suma= "+ result);
+        System.out.println("Suma= " + result);
         System.out.println("Najwieksza wartosc= " + max);
-        System.out.println("Najmniejsza wartosc= "+ min);
-
-
+        System.out.println("Najmniejsza wartosc= " + min);
     }
 
+    public static void getMax(int number) {
+        if (number > max) {
+            max = number;
+        }
+    }
 
+    public static void getMin(int number) {
+        if (number < min) {
+            min = number;
+        }
+    }
 }
-
-
-
-
-

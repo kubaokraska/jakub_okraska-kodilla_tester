@@ -2,21 +2,12 @@ public class Book {
     private String author;
     private String title;
 
-
-    public static Book of (String author, String title){
-        Book book= new Book();
-        book.title=title;
-        book.author=author;
-
-        return book;
+    public Book(String author, String title) {
+        this.title = title;
+        this.author = author;
     }
 
-    public void print(){
-        System.out.println(author);
-        System.out.println(this.title); // yyyyyyyy????????????
-
-
-
+    public static Book of(String author, String title) {
+        return new Book(author, title);
     }
-
 }
