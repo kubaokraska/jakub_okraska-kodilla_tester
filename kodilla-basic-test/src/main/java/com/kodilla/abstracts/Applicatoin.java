@@ -12,8 +12,8 @@ public class Applicatoin {
         System.out.println("Pole trojkata= " + triangle.area());
         System.out.println("Obwod trojkata= " + triangle.circuit());
 
-        Shape rectangle = new Rectangle(4,5);
-        System.out.println("Pole prostokata= "+ rectangle.area());
+        Shape rectangle = new Rectangle(4, 5);
+        System.out.println("Pole prostokata= " + rectangle.area());
         System.out.println("Obwod prostokata= " + rectangle.circuit());
 
       /*  Duck duck = new Duck();
