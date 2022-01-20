@@ -9,8 +9,7 @@ public class Calculator {
     public int subtract(int a, int b) {
         return a - b;
     }
-    public int power(int a){
+    public double power(double a){
         return a*a;
     }
 }
-
