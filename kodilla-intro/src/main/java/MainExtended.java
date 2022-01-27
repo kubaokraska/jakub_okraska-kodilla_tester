@@ -2,7 +2,6 @@ public class MainExtended {
 
 
     public static void main(String[] args) {
-
         int firVar = 1;
         double secVar = 1.2;
         float thiVar = 1;
@@ -16,7 +15,5 @@ public class MainExtended {
         System.out.println(forVar);
         System.out.println(fivVar);
         System.out.println(sixVar);
-
     }
-
-    }
+}

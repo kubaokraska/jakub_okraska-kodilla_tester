@@ -3,8 +3,8 @@ package com.kodilla.abstracts;
 public class JobApp {
 
     public static void main(String[] args) {
-        Job orthodontist = new Doctor(5000,"Sprawianie ludziom bol");
-        Person kasia = new Person("Katarzyna",27,orthodontist);
+
+        Person kasia = new Person("Katarzyna",27,new Doctor(5000,"Sprawianie ludziom bol"));
         kasia.PrintResponsibilities();
         kasia.PrintSalary();
     }

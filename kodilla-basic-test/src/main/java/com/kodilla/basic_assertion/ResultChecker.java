@@ -9,9 +9,6 @@ public class ResultChecker {
     }
 
     public static boolean assertEquals(double expected, double actual, double delta) {
-        if (abs(expected - actual) < delta) {
-            return expected == actual;
-        } else
-            return expected != actual;
+        return expected == actual;
     }
 }

@@ -23,8 +23,8 @@ public class Application {
             System.out.println("Metoda subtract nie działa poprawnie dla liczb " + a + " i " + b);
         }
 
-        int powerResult = calculator.power(a); // TEST METODY POWER
-        correct = ResultChecker.assertEquals(25, powerResult);
+       double powerResult = calculator.power(a); // TEST METODY POWER
+        correct = ResultChecker.assertEquals(25, (int) powerResult);
         if (correct) {
             System.out.println("Metoda power działa poprawnie dla liczb " + a + " i " + b);
         } else {
