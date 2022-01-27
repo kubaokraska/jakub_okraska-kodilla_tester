@@ -18,6 +18,6 @@ public class Ford implements Car{
     }
 
     public int getSpeed() {
-        return this.speed;
+        return speed;
     }
 }
