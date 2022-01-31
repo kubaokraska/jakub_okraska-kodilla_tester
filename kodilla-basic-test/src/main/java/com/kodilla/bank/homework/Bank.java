@@ -1,8 +1,8 @@
 package com.kodilla.bank.homework;
 
 public class Bank {
-    public CashMachine[] cashMachines;
-    public int cashMachinesNumber;
+    private CashMachine[] cashMachines;
+ private int cashMachinesNumber;
 
     public Bank() {
         this.cashMachinesNumber = 0;
@@ -26,13 +26,12 @@ public class Bank {
         return sum;
     }
 
-
     public double getAvgPayment(CashMachine cashMachines) {
         double sum = 0;
         int count = 0;
-        for (int i = 0; i < cashMachines.cashMachineSize; i++) {
-            if (cashMachines.cashMachineTab[i] > 0) {
-                sum = sum + cashMachines.cashMachineTab[i];
+        for (int i = 0; i < cashMachines.getCashMachineSize(); i++) {
+            if (cashMachines.getCashMachineTab()[i] > 0) {
+                sum = sum + cashMachines.getCashMachineTab()[i];
                 count++;
             }
         }
@@ -42,9 +41,9 @@ public class Bank {
     public double getAvgPayoff(CashMachine cashMachines) {
         double sum = 0;
         int count = 0;
-        for (int i = 0; i < cashMachines.cashMachineSize; i++) {
-            if (cashMachines.cashMachineTab[i] < 0) {
-                sum = sum + cashMachines.cashMachineTab[i];
+        for (int i = 0; i < cashMachines.getCashMachineSize(); i++) {
+            if (cashMachines.getCashMachineTab()[i] < 0) {
+                sum = sum + cashMachines.getCashMachineTab()[i];
                 count++;
             }
         }
@@ -53,8 +52,8 @@ public class Bank {
 
     public int getPayment(CashMachine cashMachines) {
         int sum = 0;
-        for (int i = 0; i < cashMachines.cashMachineSize; i++) {
-            if (cashMachines.cashMachineTab[i] > 0) {
+        for (int i = 0; i < cashMachines.getCashMachineSize(); i++) {
+            if (cashMachines.getCashMachineTab()[i] > 0) {
                 sum++;
             }
         }
@@ -63,8 +62,8 @@ public class Bank {
 
     public int getPayoff(CashMachine cashMachines) {
         int sum = 0;
-        for (int i = 0; i < cashMachines.cashMachineSize; i++) {
-            if (cashMachines.cashMachineTab[i] < 0) {
+        for (int i = 0; i < cashMachines.getCashMachineSize(); i++) {
+            if (cashMachines.getCashMachineTab()[i] < 0) {
                 sum++;
             }
         }
@@ -75,8 +74,8 @@ public class Bank {
     public int getPaymentOfAllCashMachine() {
         int sum = 0;
         for (int i = 0; i < cashMachinesNumber; i++) {
-            for (int x = 0; x < cashMachines[i].cashMachineSize; x++) {
-                if (cashMachines[i].cashMachineTab[x] > 0) {
+            for (int x = 0; x < cashMachines[i].getCashMachineSize(); x++) {
+                if (cashMachines[i].getCashMachineTab()[x] > 0) {
                     sum++;
                 }
             }
@@ -87,12 +86,20 @@ public class Bank {
     public int getPayoffOfAllCashMachine() {
         int sum = 0;
         for (int i = 0; i < cashMachinesNumber; i++) {
-            for (int x = 0; x < cashMachines[i].cashMachineSize; x++) {
-                if (cashMachines[i].cashMachineTab[x] < 0) {
+            for (int x = 0; x < cashMachines[i].getCashMachineSize(); x++) {
+                if (cashMachines[i].getCashMachineTab()[x] < 0) {
                     sum++;
                 }
             }
         }
         return sum;
+    }
+
+    public CashMachine[] getCashMachines() {
+        return cashMachines;
+    }
+
+    public int getCashMachinesNumber() {
+        return cashMachinesNumber;
     }
 }

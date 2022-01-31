@@ -1,8 +1,8 @@
 package com.kodilla.bank.homework;
 
 public class CashMachine {
-    public int[] cashMachineTab;
-    public int cashMachineSize;
+    private int[] cashMachineTab;
+    private int cashMachineSize;
 
     public CashMachine() {
         this.cashMachineSize = 0;
@@ -31,6 +31,14 @@ public class CashMachine {
     }
 
     public int getNumberOfTrans() {
+        return cashMachineSize;
+    }
+
+    public int[] getCashMachineTab() {
+        return cashMachineTab;
+    }
+
+    public int getCashMachineSize() {
         return cashMachineSize;
     }
 }

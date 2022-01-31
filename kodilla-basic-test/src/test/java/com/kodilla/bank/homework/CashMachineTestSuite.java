@@ -13,8 +13,10 @@ public class CashMachineTestSuite {
         bankomat.addTransaction(-600); // Transakcja odrzucona
         bankomat.addTransaction(100);
 
+        System.out.println(bankomat.getNumberOfTrans());
         assertEquals(2, bankomat.getNumberOfTrans());
     }
+
     @Test
     public void testAddTransactionLastTransaction() {
         CashMachine bankomat = new CashMachine();
@@ -23,8 +25,9 @@ public class CashMachineTestSuite {
         bankomat.addTransaction(-1100);
 
         bankomat.addTransaction(-600); // Transakcja odrzucona
-        assertEquals(-1100, bankomat.cashMachineTab[2]);
+        assertEquals(-1100, bankomat.getCashMachineTab()[2]);
     }
+
     @Test
     public void testGetBalance() {
         CashMachine bankomat = new CashMachine();
@@ -34,6 +37,7 @@ public class CashMachineTestSuite {
 
         assertEquals(100, bankomat.getBalance());
     }
+
     @Test
     public void testNumberOfTrans() {
         CashMachine bankomat = new CashMachine();

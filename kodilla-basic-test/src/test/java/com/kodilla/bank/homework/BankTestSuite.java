@@ -16,7 +16,7 @@ public class BankTestSuite {
         bank.addCashMachine(bankomat);
         bank.addCashMachine(bankomat1);
         bank.addCashMachine(bankomat2);
-        assertEquals(3, bank.cashMachinesNumber);
+        assertEquals(3, bank.getCashMachinesNumber());
     }
 
     @Test
