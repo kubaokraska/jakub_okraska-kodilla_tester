@@ -1,7 +1,5 @@
 package com.kodilla.bank.homework;
 
-import com.kodilla.basic_assertion.Calculator;
-
 public class BankApplication {
     public static void main(String[] args) {
 
@@ -18,10 +16,10 @@ public class BankApplication {
         kubaBank.addCashMachine(bankomat1);
         kubaBank.addCashMachine(bankomat2);
 
-        System.out.println(kubaBank.getBalanceOfAllCashMachine());
+        System.out.println(kubaBank.getBalanceOfAllCashMachines());
         System.out.println(kubaBank.getPayment(bankomat));
-        System.out.println(kubaBank.getPaymentOfAllCashMachine());
-        System.out.println(kubaBank.getPayoffOfAllCashMachine());
+        System.out.println(kubaBank.getPaymentOfAllCashMachines());
+        System.out.println(kubaBank.getPayoffOfAllCashMachines());
 
         System.out.println(kubaBank.getAvgPayment(bankomat1));
         System.out.println(kubaBank.getAvgPayoff(bankomat1));

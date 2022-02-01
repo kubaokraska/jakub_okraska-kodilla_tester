@@ -6,7 +6,7 @@ import java.util.List;
 
 public class School {
     private String schoolName;
-    private List<SchoolClass> schoolClasses = new ArrayList<>();
+    private List <SchoolClass> schoolClasses = new ArrayList<>();
 
     public School(String schoolName, List<SchoolClass> schoolClasses) {
         this.schoolName = schoolName;

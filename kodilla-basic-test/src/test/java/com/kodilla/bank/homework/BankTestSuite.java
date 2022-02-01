@@ -41,7 +41,7 @@ public class BankTestSuite {
         bank.addCashMachine(bankomat);
         bank.addCashMachine(bankomat1);
         bank.addCashMachine(bankomat2);
-        assertEquals(4220, bank.getBalanceOfAllCashMachine());
+        assertEquals(4220, bank.getBalanceOfAllCashMachines());
     }
 
     @Test

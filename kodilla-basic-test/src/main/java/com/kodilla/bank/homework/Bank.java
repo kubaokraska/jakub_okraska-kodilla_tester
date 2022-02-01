@@ -18,7 +18,7 @@ public class Bank {
         this.cashMachines = newTab;
     }
 
-    public int getBalanceOfAllCashMachine() {
+    public int getBalanceOfAllCashMachines() {
         int sum = 0;
         for (int i = 0; i < cashMachinesNumber; i++)
             sum = sum + cashMachines[i].getBalance();
@@ -71,7 +71,7 @@ public class Bank {
     }
 
     ////////////////////////// DODATKOWO //////////////////////////////////////////
-    public int getPaymentOfAllCashMachine() {
+    public int getPaymentOfAllCashMachines() {
         int sum = 0;
         for (int i = 0; i < cashMachinesNumber; i++) {
             for (int x = 0; x < cashMachines[i].getCashMachineSize(); x++) {
@@ -83,7 +83,7 @@ public class Bank {
         return sum;
     }
 
-    public int getPayoffOfAllCashMachine() {
+    public int getPayoffOfAllCashMachines() {
         int sum = 0;
         for (int i = 0; i < cashMachinesNumber; i++) {
             for (int x = 0; x < cashMachines[i].getCashMachineSize(); x++) {
@@ -93,10 +93,6 @@ public class Bank {
             }
         }
         return sum;
-    }
-
-    public CashMachine[] getCashMachines() {
-        return cashMachines;
     }
 
     public int getCashMachinesNumber() {

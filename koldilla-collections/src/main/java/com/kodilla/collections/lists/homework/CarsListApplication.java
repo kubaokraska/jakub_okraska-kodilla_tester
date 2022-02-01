@@ -29,10 +29,9 @@ public class CarsListApplication {
 
         cars.remove(2); // [1*]
         cars.remove(opel);
-        System.out.println();
-        System.out.println();
+        cars.remove(new Opel());
 
-        System.out.println();
+
         System.out.println("Wielkosc listy: " + cars.size());
 
         for (Car car : cars)
