@@ -15,24 +15,24 @@ public class FlightFinderTest {
         List <Flight> expectedFlightList = new ArrayList<>();
         expectedFlightList.add(new Flight("Poznań", "Berlin"));
         expectedFlightList.add(new Flight("Poznań", "Berlin"));
-        expectedFlightList.add(new Flight("Poznań","Sztokholm"));
         expectedFlightList.add(new Flight("Poznań","Amsterdam"));
+        expectedFlightList.add(new Flight("Poznań","Sztokholm"));
         //when
        List <Flight> result = FlightFinder.findFlightsFrom("Poznań");
         //then
-        assertEquals(4,result.size()); // chcialem tu wstawic asserEquals(expectedFlightList, result), ale nie działa
+        assertEquals(expectedFlightList,result); // chcialem tu wstawic asserEquals(expectedFlightList, result), ale nie działa
     }
 
     @Test
     public void testFindFlightsTo(){
         //given
         List <Flight> expectedFlightList = new ArrayList<>();
-        expectedFlightList.add(new Flight("Berlin", "Warszawa"));
         expectedFlightList.add(new Flight("Madryt", "Warszawa"));
+        expectedFlightList.add(new Flight("Berlin", "Warszawa"));
         expectedFlightList.add(new Flight("Wrocław", "Warszawa"));
         //when
         List <Flight> result = FlightFinder.findFlightsTo("Warszawa");
         //then
-        assertEquals(3,result.size()); // chcialem tu wstawic asserEquals(expectedFlightList, result), ale nie działa
+        assertEquals(expectedFlightList,result); // chcialem tu wstawic asserEquals(expectedFlightList, result), ale nie działa
     }
 }
