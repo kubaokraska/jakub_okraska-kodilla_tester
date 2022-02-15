@@ -8,6 +8,11 @@ public class Order {
     }
 
     public String getNumber() {
+        return this.number;
+    }
+
+    @Override
+    public String toString() {
         return number;
     }
 }

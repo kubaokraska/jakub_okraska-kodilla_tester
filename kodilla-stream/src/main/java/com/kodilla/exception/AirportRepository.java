@@ -8,7 +8,6 @@ public class AirportRepository {
         Map<String, Boolean> airports = new HashMap<>();
         airports.put("Miami", true);
         airports.put("Malta", true);
-        airports.put("Vienna", false);
         airports.put("LasPalma", false);
         airports.put("Warsaw", true);
         return airports;
