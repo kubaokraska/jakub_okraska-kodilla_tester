@@ -1,5 +1,7 @@
 package com.kodilla.optional.homewrok;
 
+import java.util.Optional;
+
 public class Student {
    private String name;
    private Teacher teacher;
@@ -9,11 +11,10 @@ public class Student {
         this.teacher = teacher;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
     public String getName() {
         return name;
+    }
+    public Optional <Teacher> getTeacher() {
+        return Optional.ofNullable(teacher);
     }
 }

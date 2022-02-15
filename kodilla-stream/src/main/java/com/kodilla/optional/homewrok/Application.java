@@ -24,7 +24,7 @@ public class Application {
         studentAndTeacherList.add(janSzymkowiak);
         studentAndTeacherList.add(nataliaBalcerzak);
 
-        for (Student student : studentAndTeacherList) {
+        /*for (Student student : studentAndTeacherList) {
             Optional<Teacher> optionalTeacher = Optional.ofNullable(student.getTeacher());
 
             optionalTeacher.ifPresentOrElse(s ->
@@ -35,6 +35,10 @@ public class Application {
                             System.out.println("Uczen: " + student.getName() + ", nauczyciel: <undefined>");
                         }
                     });
+        }*/
+
+        for (Student student : studentAndTeacherList) {
+            System.out.println("Name of student: " + student.getName() + " and his teacher is: " + student.getTeacher().orElse(new Teacher("<undefined>")).getName());
         }
     }
 }
