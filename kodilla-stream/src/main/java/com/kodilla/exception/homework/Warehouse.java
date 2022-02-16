@@ -19,7 +19,7 @@ public class Warehouse {
                 .map(Order::toString)
                 .collect(Collectors.joining());
 
-        if (returnString.equals(""))
+        if (returnString.equals("")) // DOBRZE TO? Bo mam wrażenie, że to rozwiązanie dla "pierwszoklasistów" :(
             throw new OrderDoesntExistException();
         return new Order(returnString);
     }
