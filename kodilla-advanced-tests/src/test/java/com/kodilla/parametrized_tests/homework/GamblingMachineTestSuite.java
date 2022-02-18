@@ -17,8 +17,8 @@ class GamblingMachineTestSuite {
         Set<Integer> numbersSet = new HashSet<>();
         GamblingMachine gamblingMachine = new GamblingMachine();
 
-        for (int i = 0; i < numbersTable.length; i++)
-            numbersSet.add(Integer.valueOf(numbersTable[i]));
+        for (int i = 0; i < numbersTable.length; i++){
+            numbersSet.add(Integer.valueOf(numbersTable[i]));}
 
         int inputFinal = gamblingMachine.howManyWins(numbersSet);
         System.out.println("WINS: " + inputFinal);

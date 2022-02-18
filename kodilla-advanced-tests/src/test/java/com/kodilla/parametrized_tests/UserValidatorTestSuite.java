@@ -25,7 +25,7 @@ class UserValidatorTestSuite {
 
     // VALIDATE EMAIL METHOD TESTS
     @ParameterizedTest
-    @ValueSource(strings = {"a", "1", "gmail.com", "@gmail.com", "a.@gmail.com", "user..name@gmail.com", "u@gmail..com",
+    @ValueSource(strings = {"a", "1", "gmail.com", "@gmail.com", "K.@gmail.com", "user..name@gmail.com", "u@gmail..com",
             "u@gmail.com1", "u@gmail.com.pl1", "u @gmail.com", "u@gmail .com", "u@ gmail.com", "u@gmail. com"})
     public void shouldReturnFalseIfStringIsNotWorkingWithRegexValidateEmailMethod(String email) {
         boolean result = userValidator.validateEmail(email);
