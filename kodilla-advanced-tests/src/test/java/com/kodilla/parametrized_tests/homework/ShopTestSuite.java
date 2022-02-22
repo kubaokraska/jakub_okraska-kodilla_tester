@@ -24,7 +24,7 @@ class ShopTestSuite {
     @Test
     public void getOrdersByTimeTest() {
         //When
-        Date dateStart = new Date(1540274000000L);
+        Date dateStart = new Date(1542294000000L);
         Date dateEnd = new Date(1542294000000L);
         Set<Order> resultOrder = shop.getOrdersByTime(dateStart, dateEnd);
         //Then
@@ -32,18 +32,38 @@ class ShopTestSuite {
     }
 
     @Test
+    public void getOrdersByTimeTest_WithException() {
+        Date dateStart = new Date(1542494000000L);
+        Date dateEnd = new Date(1542494000000L);
+        Set<Order> resultOrder = shop.getOrdersByTime(dateStart, dateEnd);
+        //Then
+        assertThrows(OrderDoesntExist.class, () -> resultOrder.size());
+    }
+
+    @Test
     public void getOrdersByPriceTest() {
         //When
-        double startingPrice = 20;
-        double endingPrice = 80;
+        double startingPrice = 10000;
+        double endingPrice = 1000000;
         Set<Order> resultOrder = shop.getOrdersByPrice(startingPrice, endingPrice);
         //Then
-        assertEquals(2, resultOrder.size());
+        assertEquals(0, resultOrder.size());
+    }
+
+    @Test
+    public void getOrdersByPriceTest_WithException() {
+        //When
+        double startingPrice = 1000;
+        double endingPrice = 1200;
+        Set<Order> resultOrder = shop.getOrdersByPrice(startingPrice, endingPrice);
+        //Then
+        assertThrows(OrderDoesntExist.class,() -> resultOrder.size());
     }
 
     @Test
     public void getNumberOfOrder() {
         assertEquals(6, shop.getNumberOfOrder());
+
     }
 
     @Test
