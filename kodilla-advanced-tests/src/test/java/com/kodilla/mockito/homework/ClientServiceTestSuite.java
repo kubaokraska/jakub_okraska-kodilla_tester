@@ -13,26 +13,16 @@ class ClientServiceTestSuite {
     GlobalNotification globalNotification = Mockito.mock(GlobalNotification.class);
     LocalNotification localNotification = Mockito.mock(LocalNotification.class);
 
-    Client client = Mockito.mock(Client.class);
     Client helClient = Mockito.mock(Client.class);
     Client gizyckoClient = Mockito.mock(Client.class);
     Client zakopaneClient = Mockito.mock(Client.class);
     Client allClient = Mockito.mock(Client.class);
 
-    @Test
-    public void throwExceptionAfterAddingTwiceTheSameClientToLocation() throws ClientExistException {
-        assertThrows(ClientExistException.class, () -> clientService.addHelClient(allClient));
-    }
-
-    @Test
-    public void notReceiveLocalNotification() {
-        Mockito.verify(client, Mockito.never()).receiveLocalNotification(localNotification);
-    }
 
     @Test
     public void receiveGlobalNotification() {
         Mockito.verify(allClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
-        Mockito.verify(helClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
+   Mockito.verify(helClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
     }
 
     @Test
@@ -41,6 +31,7 @@ class ClientServiceTestSuite {
         clientService.sendHelNotification(localNotification);
         clientService.sendGizyckoNotification(localNotification); // 2nd notification
         clientService.sendZakopaneNotification(localNotification);
+        // System.out.println(clientService.subscribers.get("Hel"));
 
         Mockito.verify(gizyckoClient, Mockito.times(2)).receiveLocalNotification(localNotification);
     }
@@ -51,12 +42,12 @@ class ClientServiceTestSuite {
         clientService.sendHelNotification(localNotification); // 2nd notification
         clientService.sendHelNotification(localNotification); // 3rd notification
 
-        Mockito.verify(helClient, Mockito.times(1)).receiveLocalNotification(localNotification);
+        Mockito.verify(helClient, Mockito.times(5)).receiveLocalNotification(localNotification);
     }
 
     @Test
     public void receiveNotificationFromManyLocation() {
-        Mockito.verify(allClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
+        Mockito.verify(allClient, Mockito.times(3)).receiveLocalNotification(localNotification);
     }
 
     @Test
@@ -72,8 +63,20 @@ class ClientServiceTestSuite {
         Mockito.verify(allClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
     }
 
+    @Test
+    public void notReceiveLocalNotificationAfterRemoveLocation() {
+        clientService.sendHelNotification(localNotification);//4h notification
+        clientService.sendGlobalNotification(globalNotification);
+        clientService.removeLocation("Hel");
+        clientService.sendHelNotification(localNotification);
+        clientService.sendGlobalNotification(globalNotification);
+
+        Mockito.verify(allClient, Mockito.times(4)).receiveLocalNotification(localNotification);
+        //  Mockito.verify(allClienton, Mockito.times(2)).receiveGlobalNotification(globalNotification);
+    }
+
     @BeforeEach
-    public void addClientsAndSendNotification() throws ClientExistException {
+    public void addClientsAndSendNotification(){
         clientService.addHelClient(helClient);
         clientService.addGizyckoClient(gizyckoClient);
         clientService.addZakopaneClient(zakopaneClient);
