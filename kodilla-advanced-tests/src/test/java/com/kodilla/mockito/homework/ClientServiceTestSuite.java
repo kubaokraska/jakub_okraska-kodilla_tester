@@ -22,7 +22,7 @@ class ClientServiceTestSuite {
     @Test
     public void receiveGlobalNotification() {
         Mockito.verify(allClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
-   Mockito.verify(helClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
+        Mockito.verify(helClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
     }
 
     @Test
@@ -31,7 +31,6 @@ class ClientServiceTestSuite {
         clientService.sendHelNotification(localNotification);
         clientService.sendGizyckoNotification(localNotification); // 2nd notification
         clientService.sendZakopaneNotification(localNotification);
-        // System.out.println(clientService.subscribers.get("Hel"));
 
         Mockito.verify(gizyckoClient, Mockito.times(2)).receiveLocalNotification(localNotification);
     }
@@ -42,7 +41,7 @@ class ClientServiceTestSuite {
         clientService.sendHelNotification(localNotification); // 2nd notification
         clientService.sendHelNotification(localNotification); // 3rd notification
 
-        Mockito.verify(helClient, Mockito.times(5)).receiveLocalNotification(localNotification);
+        Mockito.verify(helClient, Mockito.times(1)).receiveLocalNotification(localNotification);
     }
 
     @Test
@@ -64,19 +63,20 @@ class ClientServiceTestSuite {
     }
 
     @Test
-    public void notReceiveLocalNotificationAfterRemoveLocation() {
-        clientService.sendHelNotification(localNotification);//4h notification
-        clientService.sendGlobalNotification(globalNotification);
+    public void notReceiveLocalAfterRemoveLocation() {
+        clientService.sendHelNotification(localNotification);//2nd notification
+        clientService.sendGlobalNotification(globalNotification);// 2nd notification
         clientService.removeLocation("Hel");
-        clientService.sendHelNotification(localNotification);
-        clientService.sendGlobalNotification(globalNotification);
+        clientService.sendHelNotification(localNotification); // 3rd notification
+        clientService.sendGlobalNotification(globalNotification);// 3rd notification
 
-        Mockito.verify(allClient, Mockito.times(4)).receiveLocalNotification(localNotification);
-        //  Mockito.verify(allClienton, Mockito.times(2)).receiveGlobalNotification(globalNotification);
+        Mockito.verify(helClient, Mockito.times(2)).receiveLocalNotification(localNotification);
+        Mockito.verify(helClient, Mockito.times(2)).receiveGlobalNotification(globalNotification);
+
     }
 
     @BeforeEach
-    public void addClientsAndSendNotification(){
+    public void addClientsAndSendNotification() {
         clientService.addHelClient(helClient);
         clientService.addGizyckoClient(gizyckoClient);
         clientService.addZakopaneClient(zakopaneClient);
