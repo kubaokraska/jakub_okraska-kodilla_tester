@@ -31,6 +31,8 @@ public class ClientService {
 
     public void sendZakopaneNotification(LocalNotification localNotification) {
         for (Map.Entry<String, Client> subscriber : subscribers.entrySet()) {
+
+            System.out.println(subscriber);
             if (Objects.equals(subscriber.getKey(), "Zakopane"))
                 subscriber.getValue().receiveLocalNotification(localNotification);
         }
@@ -38,7 +40,7 @@ public class ClientService {
 
     public void sendHelNotification(LocalNotification localNotification) {
         for (Map.Entry<String, Client> subscriber : subscribers.entrySet()) {
-         //   System.out.println(subscriber);
+           System.out.println(subscriber);
             if (Objects.equals(subscriber.getKey(), "Hel")) {
                 subscriber.getValue().receiveLocalNotification(localNotification);
             }

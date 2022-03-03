@@ -18,25 +18,26 @@ class ClientServiceTestSuite {
     Client zakopaneClient = Mockito.mock(Client.class);
     Client allClient = Mockito.mock(Client.class);
 
-
     @Test
     public void receiveGlobalNotification() {
-        Mockito.verify(allClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
+        clientService.addHelClient(helClient);
+        clientService.sendGlobalNotification(globalNotification);
+
+
+        Mockito.verify(allClient, Mockito.times(2)).receiveGlobalNotification(globalNotification);
         Mockito.verify(helClient, Mockito.times(1)).receiveGlobalNotification(globalNotification);
     }
 
     @Test
     public void notReceiveLocalNotificationFromDifferentLocation() {
-        clientService.sendGlobalNotification(globalNotification);
-        clientService.sendHelNotification(localNotification);
-        clientService.sendGizyckoNotification(localNotification); // 2nd notification
-        clientService.sendZakopaneNotification(localNotification);
-
         Mockito.verify(gizyckoClient, Mockito.times(2)).receiveLocalNotification(localNotification);
     }
 
     @Test
     public void notReceiveLocalNotificationAfterRemoveFromLocation() {
+        clientService.addHelClient(helClient);
+        clientService.sendHelNotification(localNotification);
+
         clientService.removeClientFromHel(helClient);
         clientService.sendHelNotification(localNotification); // 2nd notification
         clientService.sendHelNotification(localNotification); // 3rd notification
@@ -77,7 +78,7 @@ class ClientServiceTestSuite {
 
     @BeforeEach
     public void addClientsAndSendNotification() {
-        clientService.addHelClient(helClient);
+       clientService.addHelClient(helClient);
         clientService.addGizyckoClient(gizyckoClient);
         clientService.addZakopaneClient(zakopaneClient);
 
@@ -86,7 +87,7 @@ class ClientServiceTestSuite {
         clientService.addZakopaneClient(allClient);
 
         clientService.sendGlobalNotification(globalNotification);
-        clientService.sendHelNotification(localNotification);
+       clientService.sendHelNotification(localNotification);
         clientService.sendGizyckoNotification(localNotification);
         clientService.sendZakopaneNotification(localNotification);
     }
