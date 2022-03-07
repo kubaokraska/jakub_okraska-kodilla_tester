@@ -1,13 +1,15 @@
 package com.kodilla.spring.basic.spring_configuration.homework;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 public class Sedan implements Car{
 
     @Override
     public boolean hasHeadlightsTurnedOn() {
-        LocalDate today = LocalDate.now();
-        if(/*obsluga LocalDate mnie przerasta*/)
+        LocalDateTime today = LocalDateTime.now();
+
+       if(today.getHour()>20 && today.getHour()<6)
         return true;
         else
             return false;

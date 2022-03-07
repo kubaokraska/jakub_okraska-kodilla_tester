@@ -1,5 +1,6 @@
 package com.kodilla.spring.basic.spring_dependency_injection.homework;
 
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -26,7 +27,9 @@ public class Calculator {
         return a * b;
     }
 
-    public double divide(double a, double b) {
+    public double divide(double a, double b) throws DivideByZero {
+        if (b == 0)
+            throw new DivideByZero();
         display.display(a / b);
         return a / b;
     }

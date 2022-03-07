@@ -52,12 +52,20 @@ class CalculatorTestSuite {
     }
 
     @Test
-    public void divideMethodTest() {
+    public void divideMethodTest() throws DivideByZero {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
         Calculator bean = context.getBean(Calculator.class);
 
         double result = bean.divide(5.42, 2);
 
         Assertions.assertEquals(2.71, result, 0.01);
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenDivideByZero() throws DivideByZero {
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
+        Calculator bean = context.getBean(Calculator.class);
+
+        Assertions.assertThrows(DivideByZero.class, () -> bean.divide(5.42, 0));
     }
 }
