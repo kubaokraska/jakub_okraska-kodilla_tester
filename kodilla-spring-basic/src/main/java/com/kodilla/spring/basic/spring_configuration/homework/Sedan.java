@@ -9,8 +9,8 @@ public class Sedan implements Car{
     public boolean hasHeadlightsTurnedOn() {
         LocalDateTime today = LocalDateTime.now();
 
-       if(today.getHour()>20 && today.getHour()<6)
-        return true;
+        if(today.getHour()>20 && today.getHour()<6)
+            return true;
         else
             return false;
     }

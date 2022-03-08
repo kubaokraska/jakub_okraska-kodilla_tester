@@ -15,8 +15,8 @@ public class CarConfiguration {
         if (today.getDayOfYear() >= 174 && today.getDayOfYear() < 267)
             return new Cabrio();
         if (today.getDayOfYear() >= 267 && today.getDayOfYear() < 357)
-            return new SUV();
-        else
             return new Sedan();
+        else
+            return new SUV();
     }
 }
