@@ -2,6 +2,7 @@ package com.kodilla.rest.controler;
 
 import com.kodilla.rest.domain.BookDto;
 import com.kodilla.rest.service.BookService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -12,8 +13,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class BookControllerTest {
 
+    @Test //zadanie domowe addBookTest
+    public void addBookTest() {
+        //given
+        BookDto tolkienLotr = new BookDto("The lord fo the ring", "J.R.R Tolkien");
+        BookDto rowlingHp = new BookDto("Harry Potter and the chumber of secret", "J.K Rowling");
+        BookService bookServiceMock = Mockito.mock(BookService.class);
+        BookController bookController = new BookController(bookServiceMock);
+        bookController.addBook(tolkienLotr);
+        bookController.addBook(rowlingHp);
+
+        //when
+        boolean resultTolkien = bookController.getBooks().contains(tolkienLotr);
+        boolean resultRowling = bookController.getBooks().contains(rowlingHp);
+
+        //then
+        Assertions.assertTrue(resultTolkien && resultRowling);
+    }
+
     @Test
-    public void shouldFetchBooks(){
+    public void shouldFetchBooks() {
         //given
         BookService bookServiceMock = Mockito.mock(BookService.class);
         BookController bookController = new BookController(bookServiceMock);
