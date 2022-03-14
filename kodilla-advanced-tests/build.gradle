@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     implementation 'org.testng:testng:7.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-test:2.6.4'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
     testImplementation('org.mockito:mockito-core:4.3.1')
