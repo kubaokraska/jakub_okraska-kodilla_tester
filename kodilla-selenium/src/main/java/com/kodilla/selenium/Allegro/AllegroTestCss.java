@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AllegroTestCss {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\KaToV-PC\\kodilla2\\Kodilla_tester\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.allegro.pl/");
         List<WebElement> allegroClassContainer = new ArrayList<>();
