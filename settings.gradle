@@ -8,4 +8,7 @@ include 'kodilla-stream'
 include 'kodilla-advanced-tests'
 include 'kodilla-spring-basic'
 include 'kodilla-rest-api'
+include 'soap'
+include 'kodilla-selenium'
+include 'kodilla-selenium'
 
