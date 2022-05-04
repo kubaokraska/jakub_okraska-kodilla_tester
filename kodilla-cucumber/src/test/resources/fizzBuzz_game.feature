@@ -1,25 +1,13 @@
 Feature: fizzBuzz Game. Is the number divisible by 3 or 5?
 
-  Scenario: Number is divisible by 3
-
-    Given the number is 6
+  Scenario Outline: Number is divisible by 3 or 5 or both or none
+    Given the number is <number>
     When calculator check if the number is divisible by 3 or 5 or both or none
-    Then I should be told "Fizz"
+    Then I should be told <answer>
 
-    Scenario: Number is divisible by 5
-
-      Given the number is 10
-      When calculator check if the number is divisible by 3 or 5 or both or none
-      Then I should be told "Buzz"
-
-  Scenario: Number is divisible by 5 and 3
-
-    Given the number is 15
-    When calculator check if the number is divisible by 3 or 5 or both or none
-    Then I should be told "FizzBuzz"
-
-  Scenario: Number isn't divisible by 5 or 3
-
-    Given the number is 14
-    When calculator check if the number is divisible by 3 or 5 or both or none
-    Then I should be told "None"
+    Examples:
+      | number | answer     |
+      | 6      | "Fizz"     |
+      | 10     | "Buzz"     |
+      | 15     | "FizzBuzz" |
+      | 14     | "None"     |

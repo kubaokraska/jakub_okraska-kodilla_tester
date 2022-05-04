@@ -17,7 +17,7 @@ class BookControllerTest {
     public void addBookTest() {
         //given
         BookDto tolkienLotr = new BookDto("The lord fo the ring", "J.R.R Tolkien");
-        BookDto rowlingHp = new BookDto("Harry Potter and the chumber of secret", "J.K Rowling");
+        BookDto rowlingHp = new BookDto("Harry Potter and the chamber of secret", "J.K Rowling");
         BookService bookServiceMock = Mockito.mock(BookService.class);
         BookController bookController = new BookController(bookServiceMock);
         bookController.addBook(tolkienLotr);

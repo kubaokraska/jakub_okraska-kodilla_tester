@@ -11,8 +11,5 @@ public class EBayTestingApp {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.ebay.com");
 
-        WebElement inputField = driver.findElement(By.name("_nkw"));
-        inputField.sendKeys("Laptop");
-        inputField.submit();
     }
 }
