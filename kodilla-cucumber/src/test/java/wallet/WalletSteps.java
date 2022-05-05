@@ -1,5 +1,4 @@
 package wallet;
-
 import io.cucumber.java8.En;
 import org.junit.Assert;
 
@@ -24,21 +23,9 @@ public class WalletSteps implements En {
             Assert.assertEquals(30, cashSlot.getContents());
         });
 
-
-        Given("I have deposited $200 in my wallet", () -> {
-            Wallet wallet = new Wallet();
-            wallet.deposit(200);
-            Assert.assertEquals("Incorrect wallet balance", 200, wallet.getBalance());
-        });
-
-        When("I request $250", () -> {
-            Cashier cashier = new Cashier(cashSlot);
-            cashier.withdraw(wallet, 250);
-        });
-
-
-        Then("$250 should not be dispensed", () -> {
-            Assert.assertEquals("You don't Have enough money",0, cashSlot.getContents());
+        Then("the balance of my wallet should be $170", () -> {
+            // Write code here that turns the phrase above into concrete actions
+            throw new io.cucumber.java8.PendingException();
         });
     }
 }

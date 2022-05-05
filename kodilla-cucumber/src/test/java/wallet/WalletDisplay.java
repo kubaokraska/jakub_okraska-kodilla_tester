@@ -1,5 +1,4 @@
 package wallet;
-
 import io.cucumber.java8.En;
 import org.junit.Assert;
 
