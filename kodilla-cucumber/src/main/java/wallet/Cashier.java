@@ -16,6 +16,8 @@ public class Cashier {
             sendMessage("Not enough money");
         }
     }
-        public String sendMessage(String message){
-            return message;}
+
+    public String sendMessage(String message) {
+        return message;
     }
+}
