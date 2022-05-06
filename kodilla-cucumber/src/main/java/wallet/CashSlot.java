@@ -7,6 +7,7 @@ public class CashSlot {
         return contents;
     }
 
-    public void dispense(int amount) {this.contents = amount;
+    public void dispense(int amount) {
+        this.contents = amount;
     }
 }
